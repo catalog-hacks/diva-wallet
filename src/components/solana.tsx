@@ -91,6 +91,7 @@ function Solana() {
         console.log(`balance is ${balance / LAMPORTS_PER_SOL} SOL`);
         const ans=Number(balance / LAMPORTS_PER_SOL);
         setBal(ans);
+
         // sendSOL(wal);
       } catch (err) {
         console.log('error from useEffect', err);
@@ -100,8 +101,8 @@ function Solana() {
   
   return (
     <View>
-      <Text>Hi frm keypair</Text>
-      <Text>balance is {bal} SOL</Text>
+      <Text style={{fontSize:20,fontWeight:'200'}}>This is Solana Wallet</Text>
+      <Text style={{fontSize:20,fontWeight:'200'}}>Balance is {bal} SOL</Text>
     </View>
   );
 }
