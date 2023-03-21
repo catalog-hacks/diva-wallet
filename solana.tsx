@@ -91,7 +91,6 @@ function Solana() {
         console.log(`balance is ${balance / LAMPORTS_PER_SOL} SOL`);
         const ans=Number(balance / LAMPORTS_PER_SOL);
         setBal(ans);
-
         // sendSOL(wal);
       } catch (err) {
         console.log('error from useEffect', err);
