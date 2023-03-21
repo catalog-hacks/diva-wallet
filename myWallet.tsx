@@ -63,7 +63,7 @@ async function SR() {
 
   useEffect(() => {
     fetchBalance();
-    SR();
+    // SR();
   }, [publicKey, privatekey, publicAddress]);
 
   return (
