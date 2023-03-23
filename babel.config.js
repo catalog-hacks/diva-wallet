@@ -6,7 +6,6 @@ module.exports = {
       {
         root: ['./src'],
         alias: {
-          crypto: '@chainsoft/react-native-quick-crypto',
           buffer: '@craftzdog/react-native-buffer',
         },
       },
